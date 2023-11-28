@@ -1,0 +1,39 @@
+package demosofclass;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+public class RegexDemo {
+
+	public static void main(String[] args) {
+		// Define the regular expression pattern
+		String regexPattern = "^[A-Za-z0-9]+$";
+ 
+		// Test strings to be matched against the regular expression
+		String testString1 = "java@123";
+		String testString2 = "Special@Symbol";
+		String testString3 = "098765";
+ 
+		// Call the verify method for each test string
+		verify(testString1, regexPattern);
+		verify(testString2, regexPattern);
+		verify(testString3, regexPattern);
+	}
+ 
+	private static void verify(String input, String regexPattern) {
+		// Create a Pattern object
+		Pattern pattern = Pattern.compile(regexPattern);
+ 
+		// Create a Matcher object
+		Matcher matcher = pattern.matcher(input);
+ 
+		// Check if the input string matches the regular expression
+		if (matcher.matches())
+		{
+			System.out.println("'" + input + "' matches the pattern.");
+		}
+		else 
+		{
+			System.out.println("'" + input + "' does not match the pattern.");
+		}
+	}
+}
+ 
